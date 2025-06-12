@@ -1,6 +1,6 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Fredoka+One&family=Comic+Neue:wght@400;700&display=swap');  
+*{text-align: center;}
+
 
 .App-logo {
   height: 40vmin;
@@ -26,6 +26,39 @@
 
 .App-link {
   color: #61dafb;
+}
+body[data-theme="light"] {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  --nav-bg: #333;
+  --nav-text: #fff;
+}
+
+body[data-theme="dark"] {
+  --bg-color: #222;
+  --text-color: #f4f4f4;
+  --card-bg: #333;
+  --card-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  --nav-bg: #111;
+  --nav-text: #fff;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.3s, color 0.3s;
+}
+
+.navbar {
+  background: var(--nav-bg);
+  color: var(--nav-text);
+}
+
+.project-card, .blog-card, .contact-form {
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
 }
 
 @keyframes App-logo-spin {
