@@ -10,6 +10,8 @@ import EditHome from './pages/EditHome';
 import EditProjects from './pages/EditProjects';
 import EditContact from './pages/EditContact';
 import ProtectedRoute from './components/ProtectedRoute';
+import NotFound from './pages/NotFound';
+
 import './styles/Admin.css';
 
 function App() {
