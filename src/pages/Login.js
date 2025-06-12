@@ -20,10 +20,14 @@ function Login() {
           withCredentials: true
         }
       );
+       console.log("✅ Login response:", res.data);
       if (res.data.success) {
         navigate('/admin');
         console.log("Login response:", res.data);
 
+      }else{
+        console.error("Login failed:", res.data.message);
+        alert("Login failed: " + res.data.message);
       }
     } catch (err) {
       console.error('Login error:', err.response?.data || err.message);
