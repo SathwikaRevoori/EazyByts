@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -18,18 +18,17 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+          {/* Public routes */}
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
 
-          {/* Protected Admin Routes */}
-          <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>}>
-            <Route index element={<Navigate to="home" />} />
-            <Route path="home" element={<EditHome />} />
-            <Route path="projects" element={<EditProjects />} />
-            <Route path="contact" element={<EditContact />} />
-          </Route>
+          {/* Admin routes */}
+          <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+          <Route path="/admin/home" element={<ProtectedRoute><EditHome /></ProtectedRoute>} />
+          <Route path="/admin/projects" element={<ProtectedRoute><EditProjects /></ProtectedRoute>} />
+          <Route path="/admin/contact" element={<ProtectedRoute><EditContact /></ProtectedRoute>} />
         </Routes>
       </Router>
     </ThemeProvider>

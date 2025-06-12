@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link,Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function AdminDashboard() {
   return (
@@ -10,7 +10,6 @@ export default function AdminDashboard() {
         <Link to="/admin/projects">Projects</Link>
         <Link to="/admin/contact">Contact</Link>
       </nav>
-      <Outlet />
     </div>
   );
 }
