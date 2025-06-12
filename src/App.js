@@ -1,16 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
-import Navbar from './components/Navbar';
-import { ThemeProvider } from './context/ThemeContext';
-import AdminDashboard from './pages/AdminDashboard';
-import EditHome from './pages/EditHome';
-import EditProjects from './pages/EditProjects';
-import EditContact from './pages/EditContact';
-import ProtectedRoute from './components/ProtectedRoute';
-import './styles/Admin.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// ... other imports
+import NotFound from './pages/NotFound'; // Create this component
 
 function App() {
   return (
@@ -29,10 +19,12 @@ function App() {
           <Route path="/admin/home" element={<ProtectedRoute><EditHome /></ProtectedRoute>} />
           <Route path="/admin/projects" element={<ProtectedRoute><EditProjects /></ProtectedRoute>} />
           <Route path="/admin/contact" element={<ProtectedRoute><EditContact /></ProtectedRoute>} />
+
+          {/* 404 route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </ThemeProvider>
   );
 }
-
 export default App;
